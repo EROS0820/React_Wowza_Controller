@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="46" height="46" viewBox="0 0 46 46">
+  <defs>
+    <filter id="Rectangle_41" x="0" y="0" width="46" height="46" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Rectangle_41)">
+    <image id="Rectangle_41-2" data-name="Rectangle 41" width="28" height="28" transform="translate(9 6)" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAABx0lEQVRIid3WOWsVURQH8F8WiLyIWxpxh4hNGlGDpbHQQiwEg42NvYXW2qTwA1jETiRfQMEiop2FlQtYqJVG0UpBXHAr3LjhBCaPN3fG92Ya/3B58+455/7Pdhd9Yic6/Rr/K2bxB48w1jbZJD7hLJ5ivk2ysYhqIf5P4WtE3ArmI6rxwuJnIuLJpglnI5qpHrKFpuu5UrfzWNNDvhUvmqzn5ejKNJ51yU4VZL8w0QThCDbgOF51yVIN74V8vMR+FUZrKCXPP+JLifxnyGuhSDiDExmjbSXzuyPtZUiOzoVjqwhTevbicYnh2pL50UhpGc7hao9yLLf3XMZwpqSGdzM2oqF2Fb3LIXXdRjwPnU5X2vcVvoexHw9yC1YRnsYhnMTrGN1ZuBW/6VC4g02DEA7HtkhYwoGM7kjoZ1FnW3SKNchgSw2dSsLPOIKXdRbDm0EJr+E6hmoSfh+UUBzcjaGyyE3j/ydMNTyM9dgRF2zuAO8XR/EOt4fi+lmKJ0SbSC+H6bT+Q1xsmWwd3mNzSukF3Iy9dgPfMoYfYpuk1P8Im+0VzbcHl/AEb1cmU45TpL8Lb5Re437oL+IgjlXop5GcvLJ8n+IvQIpe+yR0eLAAAAAASUVORK5CYII="/>
+  </g>
+</svg>

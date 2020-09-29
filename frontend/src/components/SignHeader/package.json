@@ -1,0 +1,7 @@
+{
+    "name": "SignHeader",
+    "version": "0.0.0",
+    "private": false,
+    "main": "SignHeader.js"
+  }
+  

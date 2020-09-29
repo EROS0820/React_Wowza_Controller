@@ -1,0 +1,32 @@
+.root {
+    width: 100%;
+}
+.container {
+    width: 100%;
+    height: 3000px;
+}
+.btn-top {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #F21817;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.btn-top:hover {
+    background-color: #555555;
+}
+.show {
+    display: block;
+}
+.hide {
+    display: none;
+}
+.arrow-top {
+    color: #FFFFFF;
+    font-size: 45px !important;
+}

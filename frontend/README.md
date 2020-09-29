@@ -1,124 +1,106 @@
-# React Material UI Carousel
+# React Material Admin — Material-UI Dashboard Template
 
-## Description
+Built with [React](https://facebook.github.io/react/), [Material-UI](https://material-ui.com), [React Router](https://reacttraining.com/react-router/).
+**No jQuery and Bootstrap!**
 
-A Generic, extendible Carousel UI component for React using [Material UI](https://material-ui.com/)  
-It switches between given children using a smooth animation.  
-Provides next and previous buttons.
-Also provides interactible bullet indicators.
+**This version uses React 16.8.6, React Router v5, MaterialUI v4, built with React Hooks and React Context (No Redux)**
 
-## Live Demo
+[Demo](https://flatlogic.com/admin-dashboards/react-material-admin/demo). Use any credentials to log in.
 
-Take a look at this interactible [Live Demo](https://learus.github.io/react-material-ui-carousel)
+[![image](https://user-images.githubusercontent.com/24964748/55800639-df780300-5adc-11e9-84b7-7c2437088516.png)](https://flatlogic.com/admin-dashboards/react-material-admin/demo)
 
-## Installation
+## Full Version
+
+This is a limited version of [**Full React Material Admin**](https://flatlogic.com/templates/react-material-admin-full/demo) with more components, pages and theme support.
+
+## Features
+
+- React (**16.8.6**)
+- React Hooks
+- React Context
+- **No jQuery and Bootstrap!**
+- Mobile friendly layout (responsive)
+- Create-react-app under the hood
+- React Router v5
+- Material-UI v4
+- Modular Architecture
+- CSS-in-JS styles
+- Webpack build
+- Stylish, clean, responsive layout
+- Authentication
+
+## Pages
+
+We have implemented some basic pages, so you can see our template in action.
+
+- Dashboard
+- Typography
+- Tables
+- Notifications
+- Charts
+- Icons
+- Maps
+- Login
+- Error
+
+## Quick Start
+
+#### 1. Get the latest version
+
+You can start by cloning the latest version of React Dashboard on your
+local machine by running:
 
 ```shell
-npm install react-material-ui-carousel --save
+$ git clone https://github.com/flatlogic/react-material-admin.git MyApp
+$ cd MyApp
 ```
 
-**Note:**
+#### 2. Run `yarn install`
 
-You will need to have `material-ui` installed, in order to use this library/component
+This will install both run-time project dependencies and developer tools listed
+in [package.json](package.json) file.
 
-```shell
-npm install @material-ui/core
-npm install @material-ui/icons
-```
+#### 3. Run `yarn start`
 
-## Usage Example
+Runs the app in the development mode.
 
-```jsx
-import React from 'react';
-import Carousel from 'react-material-ui-carousel'
-import {Paper} from '@material-ui/core'
+Open http://localhost:3000 to view it in the browser. Whenever you modify any of the source files inside the `/src` folder,
+the module bundler ([Webpack](http://webpack.github.io/)) will recompile the
+app on the fly and refresh all the connected browsers.
 
-function Example(props)
-{
-    var items = [
-        {
-            name: "Random Name #1",
-            description: "Probably the most random thing you have ever seen!"
-        },
-        {
-            name: "Random Name #2",
-            description: "Hello World!"
-        }
-    ]
+#### 4. Run `yarn build`
 
-    return (
-        <Carousel>
-            {
-                items.map( (item, i) => <Item key={i} item={item} /> )
-            }
-        </Carousel>
-    )
-}
+Builds the app for production to the build folder.
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-function Item(props)
-{
-    return (
-        <Paper>
-            <h2>{props.item.name}</h2>
-            <p>{props.item.description}</p>
+The build is minified and the filenames include the hashes.
+Your app is ready to be deployed!
 
-            <Button className="CheckButton">
-                Check it out!
-            </Button>
-        </Paper>
-    )
-}
-```
+## Support
 
-## Next & Prev Usage
+For any additional information please refer to [Flatlogic homepage](https://flatlogic.com).
 
-```jsx
-    <Carousel
-        next={ (next, active) => console.log(`we left ${active}, and are now at ${next}`); }
-        prev={ (prev, active) => console.log(`we left ${active}, and are now at ${prev}`); }
-    >
-        {...}
-    </Carousel>
+## How can I support developers?
 
-    // OR
+- Star our GitHub repo :star:
+- [Tweet about it](https://twitter.com/intent/tweet?text=Amazing%20dashboard%20built%20with%20NodeJS,%20React%20and%20Bootstrap!&url=https://github.com/flatlogic/react-material-template&via=flatlogic).
+- Create pull requests, submit bugs, suggest new features or documentation updates :wrench:
+- Follow [@flatlogic on Twitter](https://twitter.com/flatlogic).
+- Subscribe to Flatlogic newsletter at [flatlogic.com](https://flatlogic.com/)
+- Like our page on [Facebook](https://www.facebook.com/flatlogic/) :thumbsup:
 
-    <Carousel
-        next={ () => {/* Do stuff */} }
-        prev={ () => {/* Do other stuff */} }
-    >
-        {...}
-    </Carousel>
+## More from Flatlogic
 
-    // And so on...
-```
+- [React Native Starter](https://github.com/flatlogic/react-native-starter) - 🚀 A powerful react native starter template that bootstraps development of your mobile application
+- [Sing App](https://github.com/flatlogic/sing-app) - 💥 Free and open-source admin dashboard template built with Bootstrap 4
+- [Awesome Bootstrap Checkboxes & Radios](https://github.com/flatlogic/awesome-bootstrap-checkbox) - ✅ Pure css way to make inputs look prettier
+- [React Dashboard](https://github.com/flatlogic/react-dashboard) - 🔥 React Dashboard - isomorphic admin dashboard template with GraphQL
+- [Light Blue Dashboard](https://github.com/flatlogic/light-blue-dashboard) - 💦 Free and open-source admin dashboard template built with Bootstrap
 
-Note: `onChange` works in a similar fashion. See [Props](#props) below.
+## Premium themes
 
-## Props
-
-| Prop name                 | Type                                                               | Default     | Description                                                                                                                                                                                                                                                                                                                                              |
-| ------------------------- | ------------------------------------------------------------------ | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| className                 | `string`                                                           | ""          | Defines custom class name(s), that will be **added** to Carousel element                                                                                                                                                                                                                                                                                 |
-| autoPlay                  | `boolean`                                                          | `true`      | Defines if the component will auto scroll between children                                                                                                                                                                                                                                                                                               |
-| interval                  | `number`                                                           | `4000`      | Defines the interval in **ms** between active child changes (autoPlay)                                                                                                                                                                                                                                                                                   |
-| indicators                | `boolean`                                                          | `true`      | Defines the existence of bullet indicators                                                                                                                                                                                                                                                                                                               |
-| animation                 | `"fade"  \| "slide"`                                               | `"fade"`    | Defines the animation style of the Carousel                                                                                                                                                                                                                                                                                                              |
-| timeout                   | `number  \| {appear? number, enter?: number, exit?: number}`       | `500`       | Defines the duration of the animation                                                                                                                                                                                                                                                                                                                    |
-| navButtonsAlwaysVisible   | `boolean`                                                          | `false`     | Defines if the next/previous buttons will always be visible or not                                                                                                                                                                                                                                                                                       |
-| navButtonsAlwaysInvisible | `boolean`                                                          | `false`     | Defines if the next/previous buttons will always be invisible or not                                                                                                                                                                                                                                                                                     |
-| fullHeightHover           | `boolean`                                                          | `true`      | Defines if the the next/previous button wrappers will cover the full **height** of the Item element and show buttons on full height hover                                                                                                                                                                                                                |
-| startAt                   | `number`                                                           | `0`         | Defines which child (assuming there are more than 1 children) will be displayed first. If (startAt > children.length) then if (strictIndexing) startAt = last element index                                                                                                                                                                              |
-| strictIndexing            | `boolean`                                                          | `true`      | Defines whether startAt can be bigger than children length                                                                                                                                                                                                                                                                                               |
-| indicatorProps            | `{className: string, style: React.CSSProperties}`                  | `undefined` | Used to customize the **non-active** indicators                                                                                                                                                                                                                                                                                                          |
-| activeIndicatorProps      | `{className: string, style: React.CSSProperties}`                  | `undefined` | Used to customize the **active** indicator                                                                                                                                                                                                                                                                                                               |
-| onChange                  | `(index: number, active: number) => void` (internally: `Function`) | `() => {}`  | Function that is called **after** internal next(), prev(), and pressIndicator() method. First argument is the child **we are going to display**, while the second argument is the child **that was previouslky displayed**. Will only get called on `next()` if `props.next === undefined` and only get called on `prev()` if `props.prev === undefined` |
-| next                      | `(next: number, active: number) => void` (internally: `Function`)  | `() => {}`  | Function that is called **after** internal `next()` method. First argument is the child **we are going to display**, while the second argument is the child **that was previously displayed**                                                                                                                                                            |
-| prev                      | `(prev: number, active: number) => void` (internally: `Function`)  | `() => {}`  | Function that is called **after** internal `prev()` method. First argument is the child **we are going to display**, while the second argument is the child **that was previously displayed**                                                                                                                                                            |
+Looking for premium themes and templates? Check out more [admin dashboard templates at flatlogic.com](https://flatlogic.com/admin-dashboards).
 
 ## License
 
-The MIT License.
-
-## Author
-
-[Learus](learus.github.io)
+[MIT](https://github.com/flatlogic/react-material-dashboard/blob/master/LICENSE.txt).
