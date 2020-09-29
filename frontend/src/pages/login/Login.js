@@ -79,7 +79,6 @@ const Login = (props) => {
                 console.log(response.data);
                 if(response.data.code === 200) {
                     localStorage.setItem("token", response.data.data.token);
-                    localStorage.setItem("user", JSON.stringify(response.data.data.profile));
                     history.push('/app/dashboard');
                 } else {
                     setErrorMsg(response.data.message);

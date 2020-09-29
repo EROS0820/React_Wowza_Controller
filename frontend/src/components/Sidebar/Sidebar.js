@@ -20,8 +20,6 @@ import useStyles from "./styles";
 
 // components
 import SidebarLink from "./components/SidebarLink/SidebarLink";
-import SidebarHeader from "./components/SideHeader/SideHeader";
-import Dot from "./components/Dot";
 
 // context
 import {
@@ -60,16 +58,6 @@ const structure = [
       { label: "Add Tutor", link: ["/app/tutor/new"] },
     ],
   },
-  // {
-  //   id: 4,
-  //   label: "UI Elements",
-  //   link: "/app/ui",
-  //   children: [
-  //     { label: "Icons", link: "/app/ui/icons" },
-  //     { label: "Charts", link: "/app/ui/charts" },
-  //     { label: "Maps", link: "/app/ui/maps" },
-  //   ],
-  // }
 ];
 
 function Sidebar({ location }) {
@@ -115,9 +103,6 @@ function Sidebar({ location }) {
             }}
           />
         </IconButton>
-      </div>
-      <div>
-        <SidebarHeader />
       </div>
       <List className={classes.sidebarList}>
         {structure.map(link => (
