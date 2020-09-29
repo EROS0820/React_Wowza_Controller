@@ -3,7 +3,6 @@ import { Container, Row, Col } from "shards-react";
 import MainNavbar from "../components/layout/SearchNavbar/MainNavbar";
 import MainSidebar from "../components/layout/SearchSidebar/MainSidebar";
 import MainFooter from "../components/layout/MainFooter";
-import SearchResult from "../views/SearchResult";
 import LoadingModal from "../components/common/LoadingModal";
 import ReactNotification from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';

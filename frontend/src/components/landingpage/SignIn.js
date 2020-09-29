@@ -22,7 +22,6 @@ export default class SignIn extends React.Component {
   }
 
   componentWillMount() {
-    // document.getElementById("email-input").focus();
   }
 
   clearValidationErrors() {
@@ -38,11 +37,6 @@ export default class SignIn extends React.Component {
   toggle() {
     const { toggle } = this.props;
     toggle();
-  }
-
-  toggle_modal() {
-    const { toggle_modal } = this.props;
-    toggle_modal();
   }
 
   onChangeEmail = (e) => {
@@ -117,18 +111,8 @@ export default class SignIn extends React.Component {
     try {
       const result = await signin(this.state);
       if (result.data.result === "success") {
-        localStorage.setItem('email', this.state.email);
-        localStorage.setItem('is_mentor', result.data.user.is_mentor);
-        localStorage.setItem('user_id', result.data.user.id);
-        localStorage.setItem('avatar', result.data.user.avatar);
-        localStorage.setItem('user_name', result.data.user.name);
-        localStorage.setItem('pay_verified', result.data.user.pay_verified);
-        localStorage.setItem('is_mentor', result.data.user.is_mentor);
-        if(result.data.user.is_mentor) {
-          window.location.href = '/mentorSession';
-        } else {
-          window.location.href = '/studentSession';
-        }
+        localStorage.setItem('token', result.data.token);
+        window.location.href=""
       } else {
         this.setState({
           signInError: result.data.message
@@ -151,10 +135,6 @@ export default class SignIn extends React.Component {
     if (e.key === 'Enter') {
       this.handleSignin();
     }
-  }
-
-  handleforgetPassword() {
-    window.location.href = '/forgetpassword';
   }
 
   render() {
@@ -181,8 +161,6 @@ export default class SignIn extends React.Component {
               <label className="email-validation-err">{this.state.validationError['email']}</label>
             </div>
             <div className="content-center block-content-class modal-input-group-class">
-              <label htmlFor="fePassword">Password</label>
-              <a href="/#" htmlFor="feForgot" className="forgot-class" onClick={() => this.handleforgetPassword()}>Forgot password?</a>
               <FormInput
                 id="password-input"
                 type="password"
@@ -197,7 +175,6 @@ export default class SignIn extends React.Component {
             <div className="content-center block-content-class button-text-group-class mb-5">
               <label className="sign-in-err">{this.state.signInError}</label>
               <Button onClick={() => this.handleSignin()}>Sign in</Button>
-              <p>Don't have an account?&nbsp;<a href="/#" onClick={() => this.toggle_modal()}>Sign up</a></p>
             </div>
           </ModalBody>
         </Modal>
