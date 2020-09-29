@@ -1,107 +1,124 @@
-<p align="center">
-<a href="https://designrevision.com/downloads/shards-dashboard-lite-react/">
-<img src="assets/preview.png" width="250" />
-</a>
-</p>
+# React Material UI Carousel
 
-<h1 align="center" style="border-bottom: none !important; margin-bottom: 5px !important;"><a href="https://designrevision.com/downloads/shards-dashboard-lite-react/">Shards Dashboard React</a></h1>
-<p align="center">
-  <a href="#">
-    <img src="https://img.shields.io/badge/License-MIT-brightgreen.svg" />
-  </a>
-  <a href="https://twitter.com/designrevision">
-    <img src="https://img.shields.io/twitter/follow/DesignRevision.svg?style=social&label=Follow" />
-  </a>
-</p>
+## Description
 
-<p align="center">
-A free React admin dashboard template pack featuring a modern design system <br />  and lots of custom templates and components.
-</p>
+A Generic, extendible Carousel UI component for React using [Material UI](https://material-ui.com/)  
+It switches between given children using a smooth animation.  
+Provides next and previous buttons.
+Also provides interactible bullet indicators.
 
-<p align="center">
-  <a href="https://designrevision.com/demo/shards-dashboard-lite-react">
-    <img height="55px" src="assets/btn-live-preview.png" />
-  </a>
-  <a href="https://designrevision.com/downloads/shards-dashboard-lite-react">
-    <img height="55px" src="assets/btn-learn-more.png" />
-  </a>
-</p>
+## Live Demo
 
-<br />
+Take a look at this interactible [Live Demo](https://learus.github.io/react-material-ui-carousel)
 
-<p align="center">
-<a href="https://designrevision.com/downloads/shards-dashboard-lite-react">
-<img src="assets/demo-preview.gif" width="650" />
-</a>
-</p>
+## Installation
 
-<br />
+```shell
+npm install react-material-ui-carousel --save
+```
 
-> ✨ **Note:** You can download the Sketch files from the official product page.
+**Note:**
 
-<br />
+You will need to have `material-ui` installed, in order to use this library/component
 
-### Quick Start
+```shell
+npm install @material-ui/core
+npm install @material-ui/icons
+```
 
-* Install dependencies by running `yarn` or `npm install`.
-* Run `yarn start` or `npm run start` to start the local development server.
-* 😎 **That's it!** You're ready to start building awesome dashboards.
+## Usage Example
 
-<br />
+```jsx
+import React from 'react';
+import Carousel from 'react-material-ui-carousel'
+import {Paper} from '@material-ui/core'
 
-### Project Structure
+function Example(props)
+{
+    var items = [
+        {
+            name: "Random Name #1",
+            description: "Probably the most random thing you have ever seen!"
+        },
+        {
+            name: "Random Name #2",
+            description: "Hello World!"
+        }
+    ]
 
-- This project is bootstrapped using [Create React App](https://github.com/facebook/create-react-app).
-- **Flux** is used for state management and all Flux specific files are located inside `src/flux`. Transitioning to a more robust solution such as Redux is also fairly simple.
-- All primary templates are located inside `src/views`.
-- There is only one single layout defined (Default) inside `src/layouts`, however, the current structure provides an easy way of extending the UI kit. 
-- The `src/components` directory hosts all template-specific subcomponents in their own subdirectory.
-- The layout styles inherited from Shards Dashboard are pulled in from the `src/shards-dashboard` submodule inside `src/App.js`.
-- Other extra styles specific to the libraries used are located inside `src/assets`.
-- The `src/utils` directory contains generic Chart.js utilities.
+    return (
+        <Carousel>
+            {
+                items.map( (item, i) => <Item key={i} item={item} /> )
+            }
+        </Carousel>
+    )
+}
 
-<br />
+function Item(props)
+{
+    return (
+        <Paper>
+            <h2>{props.item.name}</h2>
+            <p>{props.item.description}</p>
 
-### Available Scripts
+            <Button className="CheckButton">
+                Check it out!
+            </Button>
+        </Paper>
+    )
+}
+```
 
-### `npm start`
+## Next & Prev Usage
 
-Runs the app in the development mode.
+```jsx
+    <Carousel
+        next={ (next, active) => console.log(`we left ${active}, and are now at ${next}`); }
+        prev={ (prev, active) => console.log(`we left ${active}, and are now at ${prev}`); }
+    >
+        {...}
+    </Carousel>
 
-### `npm test`
+    // OR
 
-Launches the test runner in the interactive watch mode.
+    <Carousel
+        next={ () => {/* Do stuff */} }
+        prev={ () => {/* Do other stuff */} }
+    >
+        {...}
+    </Carousel>
 
-### `npm run build`
+    // And so on...
+```
 
-Builds the app for production to the `build` folder.
+Note: `onChange` works in a similar fashion. See [Props](#props) below.
 
-### `npm run eject`
+## Props
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+| Prop name                 | Type                                                               | Default     | Description                                                                                                                                                                                                                                                                                                                                              |
+| ------------------------- | ------------------------------------------------------------------ | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| className                 | `string`                                                           | ""          | Defines custom class name(s), that will be **added** to Carousel element                                                                                                                                                                                                                                                                                 |
+| autoPlay                  | `boolean`                                                          | `true`      | Defines if the component will auto scroll between children                                                                                                                                                                                                                                                                                               |
+| interval                  | `number`                                                           | `4000`      | Defines the interval in **ms** between active child changes (autoPlay)                                                                                                                                                                                                                                                                                   |
+| indicators                | `boolean`                                                          | `true`      | Defines the existence of bullet indicators                                                                                                                                                                                                                                                                                                               |
+| animation                 | `"fade"  \| "slide"`                                               | `"fade"`    | Defines the animation style of the Carousel                                                                                                                                                                                                                                                                                                              |
+| timeout                   | `number  \| {appear? number, enter?: number, exit?: number}`       | `500`       | Defines the duration of the animation                                                                                                                                                                                                                                                                                                                    |
+| navButtonsAlwaysVisible   | `boolean`                                                          | `false`     | Defines if the next/previous buttons will always be visible or not                                                                                                                                                                                                                                                                                       |
+| navButtonsAlwaysInvisible | `boolean`                                                          | `false`     | Defines if the next/previous buttons will always be invisible or not                                                                                                                                                                                                                                                                                     |
+| fullHeightHover           | `boolean`                                                          | `true`      | Defines if the the next/previous button wrappers will cover the full **height** of the Item element and show buttons on full height hover                                                                                                                                                                                                                |
+| startAt                   | `number`                                                           | `0`         | Defines which child (assuming there are more than 1 children) will be displayed first. If (startAt > children.length) then if (strictIndexing) startAt = last element index                                                                                                                                                                              |
+| strictIndexing            | `boolean`                                                          | `true`      | Defines whether startAt can be bigger than children length                                                                                                                                                                                                                                                                                               |
+| indicatorProps            | `{className: string, style: React.CSSProperties}`                  | `undefined` | Used to customize the **non-active** indicators                                                                                                                                                                                                                                                                                                          |
+| activeIndicatorProps      | `{className: string, style: React.CSSProperties}`                  | `undefined` | Used to customize the **active** indicator                                                                                                                                                                                                                                                                                                               |
+| onChange                  | `(index: number, active: number) => void` (internally: `Function`) | `() => {}`  | Function that is called **after** internal next(), prev(), and pressIndicator() method. First argument is the child **we are going to display**, while the second argument is the child **that was previouslky displayed**. Will only get called on `next()` if `props.next === undefined` and only get called on `prev()` if `props.prev === undefined` |
+| next                      | `(next: number, active: number) => void` (internally: `Function`)  | `() => {}`  | Function that is called **after** internal `next()` method. First argument is the child **we are going to display**, while the second argument is the child **that was previously displayed**                                                                                                                                                            |
+| prev                      | `(prev: number, active: number) => void` (internally: `Function`)  | `() => {}`  | Function that is called **after** internal `prev()` method. First argument is the child **we are going to display**, while the second argument is the child **that was previously displayed**                                                                                                                                                            |
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## License
 
+The MIT License.
 
-<br />
+## Author
 
-### 🌟 Pro Version
-
-If you're looking for something more, check out [Shards Dashboard Pro React](https://designrevision.com/downloads/shards-dashboard-pro-react/) which features many more custom templates and components. Use the `GITHUB15` coupon code for a **15% discount off the current price**.
-
-<br />
-
-### Built using
-
-- [Shards React](https://github.com/designrevision/shards-react)
-- [Chart.js](https://www.chartjs.org/)
-- [Flux](https://facebook.github.io/flux/)
-- [No UI Slider](https://refreshless.com/nouislider/)
-- [React Datepicker](https://www.npmjs.com/package/react-datepicker)
-- [Quill](https://quilljs.com/)
-
-<br />
-
-### Changelog
-
-Please check out the [CHANGELOG](CHANGELOG.md).
+[Learus](learus.github.io)

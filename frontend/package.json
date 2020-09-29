@@ -1,80 +1,72 @@
 {
-  "name": "wowza-Admin",
-  "version": "1.0.0",
-  "private": true,
-  "homepage": "/",
+  "name": "react-material-ui-carousel",
+  "version": "1.8.3",
+  "license": "MIT",
+  "description": "A Generic, extendible Carousel UI component for React using Material UI",
+  "homepage": "https://learus.github.io",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Learus/react-material-ui-carousel"
+  },
+  "keywords": [
+    "react",
+    "material",
+    "material ui",
+    "carousel",
+    "gallery"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "babel": {
+    "presets": [
+      "react",
+      "env",
+      "stage-2"
+    ]
+  },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.30",
-    "@fortawesome/react-fontawesome": "^0.1.11",
-    "@material-ui/core": "^4.11.0",
-    "@material-ui/icons": "^4.9.1",
-    "@material-ui/lab": "^4.0.0-alpha.56",
-    "@stripe/react-stripe-js": "^1.1.2",
-    "@stripe/stripe-js": "^1.9.0",
-    "animate.css": "^4.1.0",
-    "antd": "^4.6.4",
-    "axios": "^0.19.2",
-    "basic-react-timepicker": "^1.0.0",
-    "camelize": "^1.0.0",
-    "classnames": "^2.2.6",
-    "cldr": "^5.7.0",
-    "cross-env": "^5.2.0",
-    "dateformat": "^3.0.3",
-    "flux": "^3.1.3",
-    "globalize": "^1.5.0",
-    "history": "^5.0.0",
-    "input-moment": "^0.4.0",
-    "kurento-utils": "^6.14.0",
-    "lodash.find": "^4.6.0",
-    "material-ui-dropzone": "^3.4.0",
-    "material-ui-icons": "^1.0.0-beta.36",
-    "node-sass": "^4.14.1",
-    "rc-time-picker": "^3.7.3",
-    "react": "^16.13.1",
-    "react-animate-on-scroll": "^2.1.5",
-    "react-awesome-slider": "^4.1.0",
-    "react-big-calendar": "^0.27.0",
-    "react-credit-card-input": "^1.1.5",
-    "react-credit-cards": "^0.8.3",
-    "react-data-table-component": "^6.11.0",
-    "react-dom": "^16.13.1",
-    "react-dropzone": "^11.1.0",
-    "react-file-drop": "^3.0.7",
-    "react-ga": "^2.5.6",
-    "react-images-upload": "^1.2.8",
-    "react-loader-spinner": "^3.1.14",
-    "react-multi-select-component": "^3.0.2",
-    "react-notifications-component": "^2.4.0",
-    "react-player": "^2.6.2",
-    "react-quill": "^1.3.3",
-    "react-redux": "^7.2.1",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.1",
-    "react-select": "^3.1.0",
-    "react-simple-dropdown": "^3.2.3",
-    "react-simple-timefield": "^3.2.3",
-    "react-swipeable-views": "^0.13.9",
-    "react-time-picker": "^4.0.1",
-    "reactstrap": "^8.5.1",
-    "redux": "^4.0.5",
-    "shards-react": "^1.0.0",
-    "shortid": "^2.2.15",
-    "styled-components": "^5.2.0"
+    "auto-bind": "^2.1.1",
+    "react-swipeable": "^5.5.1"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build:prod": "cross-env REACT_APP_GAID=UA-115105611-1 npm run build",
-    "build": "cross-env react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "SET NODE_ENV=production && rmdir dist /s /q && mkdir dist && npx babel ./src --out-dir dist --copy-files",
+    "build-unix": "NODE_ENV=production && rm -rf dist && mkdir -p dist && npx babel ./src --out-dir dist --copy-files",
+    "demo": "SET NODE_ENV=production && rmdir demodist /s /q && mkdir demodist && npx babel ./demo --out-dir ./demodist --copy-files",
+    "demo-unix": "NODE_ENV=production && rm -rf demodist && mkdir -p demodist && npx babel ./demo --out-dir ./demodist --copy-files",
+    "predeploy": "npm run demo",
+    "deploy": "gh-pages -d demodist",
+    "predeploy-unix": "npm run demo-unix",
+    "deploy-unix": "gh-pages -d demodist"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "typings": "src/@types/react-material-ui-carousel/index.d.ts",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "gh-pages": "^2.2.0",
+    "react-scripts": "^3.4.3"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "@material-ui/core": "^4.9.11",
+    "@material-ui/icons": "^4.9.1"
+  }
 }
