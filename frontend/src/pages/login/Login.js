@@ -79,7 +79,7 @@ const Login = (props) => {
                 console.log(response.data);
                 if(response.data.code === 200) {
                     localStorage.setItem("token", response.data.data.token);
-                    history.push('/app/dashboard');
+                    history.push('/wowza');
                 } else {
                     setErrorMsg(response.data.message);
                 }

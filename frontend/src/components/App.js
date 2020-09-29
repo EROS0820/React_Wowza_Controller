@@ -4,7 +4,6 @@ import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import { useUserState } from "../context/UserContext";
 // pages
 import Error from "../pages/error";
-import Home from "../pages/home";
 import Sign from '../pages/sign';
 // components
 import Layout from "./Layout";
@@ -39,8 +38,8 @@ export default function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" render={() => (localStorage.getItem('user') ? <Redirect to="app" /> : <Redirect to="sign" />)} />
-        <Route path={'/app'}>
+        <Route exact path="/" render={() => (localStorage.getItem('token') ? <Redirect to="wowza/list" /> : <Redirect to="sign" />)} />
+        <Route path={'/wowza'}>
           <Layout />
         </Route>
         <Route path={'/sign'}>
