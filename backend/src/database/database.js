@@ -41,5 +41,5 @@ function handleDisconnect() {
   });
 }
 
-handleDisconnect();
+// handleDisconnect();
 module.exports = connection

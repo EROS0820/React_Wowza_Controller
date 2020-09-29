@@ -14,7 +14,7 @@ const messages = {
     INVALID_AUTH_TOKEN: 'Auth token is invalid.',
     AUTH_ERROR: 'Sorry, your request could not be authenticated',
     INTERNAL_SERVER_ERROR: 'The request was not completed.',
-    INVALID_PASSWORD: 'Invalid password.',
+    INVALID_PASSWORD: 'Invalid Email or Password.',
     INVALID_NEW_PASSWORD: 'New password is the same with your old one. Please try to change your password again.',
     INVALID_SMS_CODE: 'Invalid SMS Code, Please check your SMS code again.',
     EXPIRED_SMS_CODE: 'Your SMS Code is Expired, Please try again.',

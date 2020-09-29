@@ -12,7 +12,6 @@ var message = require('../constants/message')
 var code = require('../constants/code')
 var key = require('../config/key-config')
 var timer  = require('../constants/timer')
-const adminModel = require('../models/web/admin/admin-model')
 
 var authService = {
     login: login,
@@ -29,16 +28,10 @@ var authService = {
 function login(authData) {
     return new Promise((resolve, reject) => {
         authModel.login(authData).then((data) => {
-            if (data) {
-                adminModel.getProfile(data.userID).then((result) => {
-                    let token = jwt.sign({ uid: result.userID, userdata: result }, key.JWT_SECRET_KEY, {
-                        expiresIn: timer.TOKEN_EXPIRATION
-                    })
-                    resolve({ code: code.OK, message: '', data: { 'token': token, 'profile': result} })
-                }).catch((err) => {
-                    reject({ code: code.INTERNAL_SERVER_ERROR, message: err.message, data: {} })
-                })
-            }
+            let token = jwt.sign(authData, key.JWT_SECRET_KEY, {
+                expiresIn: timer.TOKEN_EXPIRATION
+            })
+            resolve({ code: code.OK, message: '', data: { 'token': token } })
         }).catch((err) => {
             if (err.message === message.INTERNAL_SERVER_ERROR)
                 reject({ code: code.INTERNAL_SERVER_ERROR, message: err.message, data: {} })
