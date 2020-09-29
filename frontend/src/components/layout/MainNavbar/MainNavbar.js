@@ -1,53 +1,63 @@
 import React from "react";
 import classNames from "classnames";
-import { Container, Navbar, NavbarBrand } from "shards-react";
+import { Container, Navbar, Button } from "shards-react";
+
+import SignIn from "../../landingpage/SignIn";
+
+import projectLogo from '../../../images/logo.png'
 
 const classes = classNames(
   "main-navbar",
   "bg-white",
-  "main-nav-bar-class",
   "sticky-top"
 );
 
-export default class MainNavbar extends React.Component {
+export default class MainNavbar extends React.Component{
 
-  toggleType() {
-    const { toggleType } = this.props;
-    toggleType();
+  constructor(props) {
+    super(props);
+    this.signInElement = React.createRef();
+    this.state = {
+      signInOpen: false,
+    }
   }
 
-  toggle_search(searchKey) {
-    const { onSearch } = this.props;
-    onSearch(searchKey);
+  toggle_signin() {
+    this.setState({
+      signInOpen: !this.state.signInOpen
+    });
+    if(!this.state.signInOpen) {
+      this.signInElement.current.clearValidationErrors();
+    }
+  }
+
+  toggle_modal() {
+    this.setState({
+      signInOpen: !this.state.signInOpen,
+    });
+    if(!this.state.signInOpen) {
+      this.signInElement.current.clearValidationErrors();
+    }
   }
 
   render() {
 
+    const { signInOpen } = this.state;
+
     return (
       <div className={classes}>
+        <SignIn ref={this.signInElement} open={signInOpen} toggle={() => this.toggle_signin()} toggle_modal={() => this.toggle_modal()}/>
         <Container className="p-0 fix-position">
           <Navbar type="light" className="align-items-stretch flex-md-nowrap p-0">
-            <div className="sidebar-main-navbar-class">
-              <Navbar
-                className="align-items-stretch bg-white flex-md-nowrap border-bottom p-0"
-                type="light"
-              >
-                <NavbarBrand
-                  className="w-100 mr-0"
-                  href="#"
-                  style={{ lineHeight: "25px" }}
-                >
-                  <div className="d-table m-auto">
-                    <img
-                      id="main-logo"
-                      className="d-inline-block align-top mr-1"
-                      style={{ marginLeft: "30px" }}
-                      src={require("../../../images/logo.svg")}
-                      alt="Shards Dashboard"
-                    />
-                  </div>
-                </NavbarBrand>
-              </Navbar>
+            <img
+              alt="Project logo"
+              src={projectLogo}
+              className="logo-image"
+            />
+            <div className="btn-group-header">
+              <Button outline theme="primary" className="mb-2 btn-landingpage btn-custom" onClick={() => this.toggle_signin()}>
+                Sign in
+              </Button>
             </div>
           </Navbar>
         </Container>
@@ -55,4 +65,3 @@ export default class MainNavbar extends React.Component {
     );
   }
 };
-
