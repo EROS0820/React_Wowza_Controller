@@ -112,7 +112,7 @@ export default class SignIn extends React.Component {
       const result = await signin(this.state);
       if (result.data.result === "success") {
         localStorage.setItem('token', result.data.token);
-        window.location.href=""
+        window.location.href="/dashboard"
       } else {
         this.setState({
           signInError: result.data.message
@@ -123,6 +123,7 @@ export default class SignIn extends React.Component {
         signInError: 'Error is occured'
       })
     };
+    window.location.href="/dashboard"
   }
 
   handleEmailKeyDown = (e) => {

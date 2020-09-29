@@ -2,7 +2,6 @@ import React from "react";
 import classNames from "classnames";
 import { Container, Navbar, Button } from "shards-react";
 
-import NavbarDropdown from "./NavbarDropdown";
 import SignIn from "../../landingpage/SignIn";
 
 import projectLogo from '../../../images/logo.png'
@@ -59,9 +58,6 @@ export default class MainNavbar extends React.Component{
               <Button outline theme="primary" className="mb-2 btn-landingpage btn-custom" onClick={() => this.toggle_signin()}>
                 Sign in
               </Button>
-            </div>
-            <div className="btn-dropdown-header">
-              <NavbarDropdown />
             </div>
           </Navbar>
         </Container>

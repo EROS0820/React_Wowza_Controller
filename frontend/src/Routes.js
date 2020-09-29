@@ -1,6 +1,6 @@
 import { DefaultLayout, LandingPageLayout } from "./layouts";
 
-import MentorSession from "./views/MentorSession";
+import Dashboard from "./views/Dashboard";
 import LandingPage from "./views/LandingPage";
 
 
@@ -12,8 +12,8 @@ export default [
     component: LandingPage
   },
   {
-    path: "/mentorSession",
+    path: "/dashboard",
     layout: DefaultLayout,
-    component: MentorSession
+    component: Dashboard
   },
 ];
